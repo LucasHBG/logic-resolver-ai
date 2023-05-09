@@ -1,0 +1,20 @@
+# ignore all extensions
+*.*
+
+# except these
+!*.js
+!*.jsx
+!*.ts
+!*.tsx
+!*.json
+!*.css
+!*.scss
+!*.md
+!*.php
+
+# but ignore these specific ones
+vendor
+node_modules
+.idea
+.vscode
+*.min.*
