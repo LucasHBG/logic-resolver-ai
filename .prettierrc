@@ -1,0 +1,42 @@
+{
+    "printWidth": 150,
+    "tabWidth": 4,
+    "singleQuote": true,
+    "importOrder": [
+        "^@core/(.*)$",
+        "^@/lib/(.*)$",
+        "^@/hooks/(.*)$",
+        "^@/utils/(.*)$",
+        "^@/components/(.*)$",
+        "^@/model/(.*)$",
+        "^@/mock/(.*)$",
+        "^[./]"
+    ],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true,
+    "overrides": [
+        {
+            "files": [
+                "*.js",
+                "*.jsx",
+                "*.tsx",
+                "*.ts"
+            ],
+            "options": {
+                "semi": false,
+                "trailingComma": "es5"
+            }
+        },
+        {
+            "files": "*.yml",
+            "options": {
+                "singleQuote": false
+            }
+        }
+    ],
+    "plugins": [
+        "@trivago/prettier-plugin-sort-imports",
+        "prettier-plugin-tailwindcss"
+    ],
+    "pluginSearchDirs": false
+}
