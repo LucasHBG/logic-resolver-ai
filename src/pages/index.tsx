@@ -1,5 +1,5 @@
-export default function Home(): JSX.Element {
-    return (
-        <p>Hello Wolrd</p>
-    )
+import HomeComponent from '@/components/HomePage'
+
+export default function index(): JSX.Element {
+    return <HomeComponent />
 }
