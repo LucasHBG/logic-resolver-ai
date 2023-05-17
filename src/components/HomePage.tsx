@@ -146,7 +146,217 @@ export default function HomeComponent(): JSX.Element {
                 <div className="flex w-full [&>button]:w-20">
                     <button
                         type="button"
-                        onClick={() => setInputText(inputText + '&')}
+                        onClick={() => setInputText(inputText + 'p')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        p
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + 'q')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        q
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + 'r')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        r
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + 's')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        s
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + '&&')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        &&
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + 'AND')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        AND
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + '∧')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        ∧ 
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + '*')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        *
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + 'OR')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        OR
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + '||')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        ||
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + '+')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        +
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + '∨')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        ∨
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + 'XOR')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        XOR
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + '⊕')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        ⊕
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + 'N')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        N
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + '~')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        ~
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + 'NOT')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        NOT
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + '¬')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        ¬
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + '→')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        →
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + 'XNOR')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        XNOR
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + '↔')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        ↔
+                    </button>
+                </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + ')')}
                         className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
                     >
                         &
