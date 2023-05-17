@@ -152,6 +152,16 @@ export default function HomeComponent(): JSX.Element {
                         &
                     </button>
                 </div>
+
+                <div className="flex w-full [&>button]:w-20">
+                    <button
+                        type="button"
+                        onClick={() => setInputText(inputText + '&')}
+                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                    >
+                        Y
+                    </button>
+                </div>
             </div>
         </MainLayout>
     )
