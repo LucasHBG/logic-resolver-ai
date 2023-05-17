@@ -1,4 +1,72 @@
-## Início
+# Logic Resolver Ai - FEMATEC
+
+Instruções para instalação e configuração do ambiente de desenvolvimento da plataforma.
+
+Os tópicos abaixo requerem familiaridade com uso de terminal de comando. Para ambientes Windows, é necessário possuir instalado o [WSL2](https://docs.microsoft.com/pt-br/windows/wsl/install), que provê acesso a um terminal compatível com comandos e programas Linux.
+
+## Requisitos
+
+1. [Docker](https://www.docker.com/products/docker-desktop/)
+1. [vscode](https://code.visualstudio.com/download)
+1. [git](https://git-scm.com/downloads)
+
+### Observações:
+
+-   Em ambiente Windows, é importante executar todos os comandos dentro do WSL
+-   Embora seja possível utilizar qualquer editor de texto, aqui, se dá preferência para o vscode uma vez que ele permite utilizar container docker de ambiente de desenvolvimento.
+
+## Verificar WSL no Windows
+
+Para executar o projeto em Windows, é necessário instalar o WSL2. Caso a plataforma não seja Windows, esta etapa deve ser ignorada.
+
+-   Abrir o `cmd.exe` no modo administrador e digitar `wsl -l -v` para verificar o status da instalação.
+-   Após identificar o devido estado (instalado ou não), seguir o tópico abaixo mais adequado.
+-   Os comandos abaixo devem ser executados no `cmd.exe` em modo administrador
+
+### Instalar WSL
+
+-   Executar o comando `wsl --install -d Ubuntu` para instalar
+-   Nesta etapa, pode ser necessário definir usuário e senha para a plataforma WSL. Essas credenciais podem ser iguais às do Windows, mas lembre-se de que são autenticações distintas, assim, você precisará delas futuramente para executar comandos administrativos dentro da plataforma WSL
+-   O Windows pedirá para reiniciar algumas vezes e avisará quando estiver pronto
+
+### Atualizar WSL
+
+-   Executar o comando `wsl --update` para atualizar a versão da plataforma
+
+### Verificar status
+
+-   O comando `wsl -l -v` deverá retornar as seguintes informações:
+
+```
+C:\Users\usuario>wsl -l -v
+  NAME                   STATE           VERSION
+* Ubuntu                 Running         2
+  docker-desktop-data    Running         2
+  docker-desktop         Running         2
+```
+
+## Instalar git
+
+### Windows
+
+-   A plataforma WSL possui instalação nativa do git, assim, deve-se seguir somente ao tópico de configuração
+
+### Configurar git
+
+-   Definir nome com o seguinte comando `git config --global user.name "SEU NOME"`
+-   Definir email com o seguinte comando `git config --global user.email "seu@email.com"`
+-   Definir chave SSH para autenticação: `ssh-keygen -t ed25519 -C "seu@email.com"` (apertar Enter em todas as etapas)
+
+## Configurar Bitbucket
+
+Após a instalação do git e configuração da chave SSH, é necessário vincular a máquina à sua conta no Bitbucket. Além de permitir o clone do repositório, esta etapa possibilita as operações rotineiras de desenvolvimento, como push e pull de commits.
+
+-   Exibir chave criptográfica `cat ~/.ssh/id_ed25519.pub`
+-   Copiar todo o conteúdo exibido pelo comando anterior
+-   Entrar no [Perfil do GitHub](https://github.com/settings/keys)
+-   Clicar em "Adicionar chave" ou "Add new Key"
+-   Dê um nome para identificar a máquina, colar a chave criptográfica copiada e salvar
+-   Agora sua máquina tem permissão para se conectar ao repositório
 
 
 ## Clonar repositório
