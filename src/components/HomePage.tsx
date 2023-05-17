@@ -13,6 +13,42 @@ export default function HomeComponent(): JSX.Element {
     })
     const openai = new OpenAIApi(configuration)
 
+    const helperText =
+        "Tenho um sistema que resolve problemas de lógica matemática usando esses símbolos de lógica matemática: \
+    \
+    - Disjunção: v , OR , || , +\
+    - Conjunção: ^ , AND , && , *\
+    - Disjunção exclusiva: XOR , ⊕ \
+    - Negação: N , ~ , NOT , ¬\
+    - Condicional: → \
+    - Bicondicional: XNOR , ↔ \
+    \
+    Além disso, nesse sistema será utilizada a tabela-verdade para representar as soluções. \
+    \
+    Ao se desenvolver a resposta deve ser levado em consideração a ordem de prioridade dos símbolos e parênteses na resolução. \
+    \
+    A ordem de prioridade é descrita na ordem a seguir:\
+    \
+    Parênteses, Negação, Disjunção, Conjunção, Condicional e, por fim, Bicondicional.\
+    \
+    O usuário desse sistema tem a possibilidades de criar perguntas que utilizam variáveis como: P, Q, R e S.\
+    \
+    Como os símbolos (átomos) são muito difíceis de serem visualizados, apresente uma resposta à pergunta usando tabela verdade para que o usuário possa copiar os símbolos e construir uma resolução.\
+    \
+    Além disso, devem ser seguidos os três princípios da Lógica Clássica de Aristóteles:\
+    \
+    1° Identidade: O que é, é, ou seja, algo é idêntico a si mesmo; e um enunciado deve se manter igual a si mesmo. Simbolicamente, podemos dizer X = X.\
+    \
+    2° Não contradição: Algo não pode ser e não ser, ao mesmo tempo, ou seja, algo não pode ser e não ser a mesma coisa, no mesmo tempo e sob a mesma perspectiva ou aspecto; e um enunciado não pode ser ao mesmo tempo verdadeiro e falso. Simbolicamente, se X = X, então “X” não pode ser “não-X”.\
+    \
+    3° Terceiro excluído: Algo somente pode ser ou não ser, não havendo outra possibilidade, ou seja, algo ou é ou não é, só existindo esses dois modos de ser; e um enunciado ou é verdadeiro ou é falso, não existindo outra possibilidade. Simbolicamente, ou “X” ou “não-X”.\
+    \
+    Assim que o usuário perguntar sobre resolver um problema, apresente uma tabela-verdade detalhada com o resultado, onde 0 receba F (falso) e 1 receba V (verdade).\
+    \
+    Se a pergunta abaixo pedir mais qualquer assunto não relacionado à Lógica Matemática ou Lógica Clássica de Aristóteles, retorne a seguinte resposta: 'Essa pergunta não está relacionada com o modelo no qual fui projetado.' \
+    \
+    Pergunta: "
+
     // a submit function that will execute upon form submission
     async function submitedQuestionCallback(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault()
@@ -26,7 +62,7 @@ export default function HomeComponent(): JSX.Element {
         try {
             const res = await openai.createCompletion({
                 model: 'text-davinci-003',
-                prompt: promptValue,
+                prompt: helperText + promptValue,
                 max_tokens: 1000,
             })
 
@@ -143,14 +179,240 @@ export default function HomeComponent(): JSX.Element {
                     </div>
                 </form>
 
-                <div className="flex w-full [&>button]:w-20">
-                    <button
-                        type="button"
-                        onClick={() => setInputText(inputText + '&')}
-                        className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
-                    >
-                        &
-                    </button>
+                {/* Conjunto 1 de botões */}
+                <div className="flex w-full flex-row items-center justify-center">
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + 'P')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            P
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + 'Q')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            Q
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + 'R')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            R
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + 'S')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            S
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + '&&')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            &&
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + 'AND')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            AND
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + '∧')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            ∧
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + '*')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            *
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + 'OR')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            OR
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + '||')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            ||
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + '+')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            +
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + 'v')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            v
+                        </button>
+                    </div>
+                </div>
+
+                {/* Conjunto 2 de botões */}
+                <div className="flex w-full flex-row items-center justify-around">
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + 'XOR')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            XOR
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + '⊕')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            ⊕
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + 'N')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            N
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + '~')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            ~
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + 'NOT')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            NOT
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + '¬')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            ¬
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + '→')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            →
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + 'XNOR')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            XNOR
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + ')')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            )
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + '(')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            (
+                        </button>
+                    </div>
+
+                    <div className="flex w-full [&>button]:w-20">
+                        <button
+                            type="button"
+                            onClick={() => setInputText(inputText + '↔')}
+                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
+                        >
+                            ↔
+                        </button>
+                    </div>
                 </div>
             </div>
         </MainLayout>
