@@ -9,7 +9,7 @@ export default function HomeComponent(): JSX.Element {
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
     const configuration = new Configuration({
-        apiKey: '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',
+        apiKey: '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',
     })
     const openai = new OpenAIApi(configuration)
 
