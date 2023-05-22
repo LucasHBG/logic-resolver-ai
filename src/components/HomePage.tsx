@@ -9,7 +9,7 @@ export default function HomeComponent(): JSX.Element {
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
     const configuration = new Configuration({
-        apiKey: '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',
+        apiKey: process.env.OPENAI_SECRET,
     })
     const openai = new OpenAIApi(configuration)
 
@@ -18,10 +18,10 @@ export default function HomeComponent(): JSX.Element {
     \
     - Disjunção: v , OR , || , +\
     - Conjunção: ^ , AND , && , *\
-    - Disjunção exclusiva: XOR , ⊕ \
+    - Disjunção exclusiva: XNOR, ⊕ \
     - Negação: N , ~ , NOT , ¬\
     - Condicional: → \
-    - Bicondicional: XNOR , ↔ \
+    - Bicondicional: ↔ \
     \
     Além disso, nesse sistema será utilizada a tabela-verdade para representar as soluções. \
     \
@@ -29,11 +29,10 @@ export default function HomeComponent(): JSX.Element {
     \
     A ordem de prioridade é descrita na ordem a seguir:\
     \
-    Parênteses, Negação, Disjunção, Conjunção, Condicional e, por fim, Bicondicional.\
+    Parênteses, Negação, Disjunção, Conjunção, Condicional e, por fim, Bicondicional. Você deve usa-las somente se o usuário estiver colocado elas na pergunta.\
     \
-    O usuário desse sistema tem a possibilidades de criar perguntas que utilizam variáveis como: P, Q, R e S.\
-    \
-    Como os símbolos (átomos) são muito difíceis de serem visualizados, apresente uma resposta à pergunta usando tabela verdade para que o usuário possa copiar os símbolos e construir uma resolução.\
+    O usuário desse sistema tem a possibilidades de criar perguntas que utilizam proposições simples como: 'p', 'q', 'r' e 's'.\
+    \ Use os símbolos listados acima para resolver as perguntas.\
     \
     Além disso, devem ser seguidos os três princípios da Lógica Clássica de Aristóteles:\
     \
@@ -43,9 +42,11 @@ export default function HomeComponent(): JSX.Element {
     \
     3° Terceiro excluído: Algo somente pode ser ou não ser, não havendo outra possibilidade, ou seja, algo ou é ou não é, só existindo esses dois modos de ser; e um enunciado ou é verdadeiro ou é falso, não existindo outra possibilidade. Simbolicamente, ou “X” ou “não-X”.\
     \
-    Assim que o usuário perguntar sobre resolver um problema, apresente uma tabela-verdade detalhada com o resultado, onde 0 receba F (falso) e 1 receba V (verdade).\
+    A proposição sempre inicia com valor 0 (zero) e nunca com valor inicial 1 (um). Porém, se a proposição estiver negada ou com o símbolo de negação, então ela vai iniciar com 1. \
     \
-    Se a pergunta abaixo pedir mais qualquer assunto não relacionado à Lógica Matemática ou Lógica Clássica de Aristóteles, retorne a seguinte resposta: 'Essa pergunta não está relacionada com o modelo no qual fui projetado.' \
+    Assim que o usuário perguntar sobre resolver um problema, apresente uma tabela-verdade detalhada com o resultado, onde 0 receba F (falso) e 1 receba V (verdade). Use os símbolos listados acima para resolver as perguntas. Além disso, explique para o usuário como você chegou nesse resultado. Se, ao analisar a pergunta, verificar-se que não há necessidade de uma tabela verdade, gere um texto explicativo longo que explique como chegou na sua resposta.  \
+    \
+    Se a pergunta abaixo não tiver relação com a Lógica Matemática, retorne a seguinte resposta: 'Essa pergunta não está relacionada com o modelo no qual fui projetado.' \
     \
     Pergunta: "
 
@@ -90,13 +91,13 @@ export default function HomeComponent(): JSX.Element {
                         Resposta
                     </label>
                     <textarea
-                        className="block w-full snap-y snap-center rounded border-blue-900 bg-gray-50 p-4 text-sm text-gray-900"
+                        className="block w-full snap-y snap-center rounded border-blue-900 bg-gray-50 p-4 text-lg text-gray-900"
                         id="output"
-                        rows={25}
+                        rows={12}
                         autoFocus={false}
                         placeholder="Esperando pergunta..."
                         value={outputText.map((text, index) => {
-                            return `Pergunta Nº ${index + 1}:\n` + text
+                            return `\nPergunta Nº ${index + 1}:\n` + text
                         })}
                         disabled
                     ></textarea>
@@ -180,44 +181,44 @@ export default function HomeComponent(): JSX.Element {
                 </form>
 
                 {/* Conjunto 1 de botões */}
-                <div className="flex w-full flex-row items-center justify-center">
+                <div className="pt-4 grid w-full items-center grid-cols-11 justify-center gap-4">
                     <div className="flex w-full [&>button]:w-20">
                         <button
                             type="button"
-                            onClick={() => setInputText(inputText + 'P')}
+                            onClick={() => setInputText(inputText + 'p')}
                             className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
                         >
-                            P
+                            p
                         </button>
                     </div>
 
                     <div className="flex w-full [&>button]:w-20">
                         <button
                             type="button"
-                            onClick={() => setInputText(inputText + 'Q')}
+                            onClick={() => setInputText(inputText + 'q')}
                             className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
                         >
-                            Q
+                            q
                         </button>
                     </div>
 
                     <div className="flex w-full [&>button]:w-20">
                         <button
                             type="button"
-                            onClick={() => setInputText(inputText + 'R')}
+                            onClick={() => setInputText(inputText + 'r')}
                             className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
                         >
-                            R
+                            r
                         </button>
                     </div>
 
                     <div className="flex w-full [&>button]:w-20">
                         <button
                             type="button"
-                            onClick={() => setInputText(inputText + 'S')}
+                            onClick={() => setInputText(inputText + 's')}
                             className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
                         >
-                            S
+                            s
                         </button>
                     </div>
 
@@ -300,10 +301,12 @@ export default function HomeComponent(): JSX.Element {
                             v
                         </button>
                     </div>
-                </div>
 
-                {/* Conjunto 2 de botões */}
+                    {/* 
+                </div>
                 <div className="flex w-full flex-row items-center justify-around">
+*/}
+
                     <div className="flex w-full [&>button]:w-20">
                         <button
                             type="button"
@@ -351,16 +354,6 @@ export default function HomeComponent(): JSX.Element {
                             className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
                         >
                             NOT
-                        </button>
-                    </div>
-
-                    <div className="flex w-full [&>button]:w-20">
-                        <button
-                            type="button"
-                            onClick={() => setInputText(inputText + '¬')}
-                            className="block items-center rounded border border-blue-900 p-2 text-center text-gray-900 hover:bg-gray-50 focus:ring-1 focus:ring-blue-200 dark:focus:ring-blue-900"
-                        >
-                            ¬
                         </button>
                     </div>
 
