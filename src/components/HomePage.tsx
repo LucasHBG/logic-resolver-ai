@@ -67,6 +67,10 @@ export default function HomeComponent(): JSX.Element {
                 model: 'gpt-3.5-turbo',
                 messages: [
                     {
+                        role: 'system',
+                        content: 'Você é uma inteligência artificial capaz de solucionar somente problemas de lógica matemática.',
+                    },
+                    {
                         role: 'user',
                         content: prompt,
                     },
