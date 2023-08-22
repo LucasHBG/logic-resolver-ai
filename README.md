@@ -1,5 +1,10 @@
 # Logic Resolver Ai - FEMATEC
 
+## Diagrama
+
+![logic_resolver_diagram](https://github.com/LucasHBG/logic-resolver-ai/assets/31226269/cbe1fc25-9a43-4bef-b956-5fcce4087545)
+
+
 Instruções para instalação e configuração do ambiente de desenvolvimento da plataforma.
 
 Os tópicos abaixo requerem familiaridade com uso de terminal de comando. Para ambientes Windows, é necessário possuir instalado o [WSL2](https://docs.microsoft.com/pt-br/windows/wsl/install), que provê acesso a um terminal compatível com comandos e programas Linux.
