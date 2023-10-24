@@ -259,6 +259,34 @@ function IconChevronUpDown({ className, ...props }: React.ComponentProps<'svg'>)
     )
 }
 
+function IconSendRight({ className, ...props }: React.ComponentProps<'svg'>) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className={cn('h-4 w-4', className)}
+            {...props}
+        >
+            <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
+            />
+        </svg>
+    )
+}
+
+function IconQuestionMark({ className, ...props }: React.ComponentProps<'svg'>) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512" fill='currentColor'  className={cn('h-4 w-4', className)} {...props}>
+            <path d="M80 160c0-35.3 28.7-64 64-64h32c35.3 0 64 28.7 64 64v3.6c0 21.8-11.1 42.1-29.4 53.8l-42.2 27.1c-25.2 16.2-40.4 44.1-40.4 74V320c0 17.7 14.3 32 32 32s32-14.3 32-32v-1.4c0-8.2 4.2-15.8 11-20.2l42.2-27.1c36.6-23.6 58.8-64.1 58.8-107.7V160c0-70.7-57.3-128-128-128H144C73.3 32 16 89.3 16 160c0 17.7 14.3 32 32 32s32-14.3 32-32zm80 320a40 40 0 1 0 0-80 40 40 0 1 0 0 80z" />
+        </svg>
+    )
+}
+
 export {
     IconEdit,
     IconLogicResolverAi,
@@ -285,4 +313,6 @@ export {
     IconUsers,
     IconExternalLink,
     IconChevronUpDown,
+    IconSendRight,
+    IconQuestionMark,
 }
