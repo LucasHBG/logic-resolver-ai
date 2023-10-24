@@ -1,9 +1,16 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
 
 module.exports = {
-    content: ['./src/**/*.{js,jsx,ts,tsx}'],
     darkMode: ['class'],
+    content: ['app/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}'],
     theme: {
+        container: {
+            center: true,
+            padding: '2rem',
+            screens: {
+                '2xl': '1400px',
+            },
+        },
         extend: {
             fontFamily: {
                 sans: ['var(--font-sans)', ...fontFamily.sans],
@@ -82,5 +89,5 @@ module.exports = {
             },
         },
     },
-    plugins: [require('@tailwindcss/forms'), require('tailwindcss-animate'), require('@tailwindcss/typography')],
+    plugins: [require('tailwindcss-animate'), require('@tailwindcss/typography')],
 }
