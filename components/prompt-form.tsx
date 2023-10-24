@@ -5,7 +5,10 @@ import ReactTextareaAutosize from 'react-textarea-autosize'
 
 import { useEnterSubmit } from '@/lib/hooks/use-enter-submit'
 import { systemPrompt } from '@/lib/role-texts'
+import { cn } from '@/lib/utils'
 
+import { Button, buttonVariants } from './ui/button'
+import { IconQuestionMark, IconSendRight } from './ui/icons'
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip'
 
 export interface PromptProps extends Pick<UseChatHelpers, 'input' | 'setInput'> {
@@ -101,6 +104,24 @@ export function PromptForm({ onSubmit, input, setInput, isLoading }: PromptProps
 
         <form onSubmit={submitedQuestionCallback} ref={formRef}>
             <div className="relative flex max-h-60 w-full grow flex-col overflow-hidden bg-background px-8 sm:rounded-md sm:border sm:px-12">
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <button
+                            type="button"
+                            onClick={(e) => {
+                                e.preventDefault()
+                            }}
+                            className={cn(
+                                buttonVariants({ size: 'sm', variant: 'outline' }),
+                                'absolute left-0 top-4 h-8 w-8 rounded-full bg-background p-0 sm:left-4'
+                            )}
+                        >
+                            <IconQuestionMark />
+                            <span className="sr-only">Como perguntar</span>
+                        </button>
+                    </TooltipTrigger>
+                    <TooltipContent>Como perguntar</TooltipContent>
+                </Tooltip>
                 <ReactTextareaAutosize
                     name="inputText"
                     id="inputText"
@@ -108,7 +129,6 @@ export function PromptForm({ onSubmit, input, setInput, isLoading }: PromptProps
                     autoFocus={true}
                     onChange={(e) => setInputText(e.target.value)}
                     value={inputText}
-                    // className="block w-full snap-y snap-center rounded-l border border-blue-900 bg-gray-50 p-2 text-gray-900 focus:border-blue-900"
                     ref={inputRef}
                     onKeyDown={onKeyDown}
                     className="min-h-[60px] w-full resize-none bg-transparent px-4 py-[1.3rem] focus-within:outline-none sm:text-sm"
@@ -116,32 +136,17 @@ export function PromptForm({ onSubmit, input, setInput, isLoading }: PromptProps
                     tabIndex={0}
                     spellCheck={false}
                 />
-                <Tooltip>
-                    <TooltipTrigger asChild>
-                        <button
-                            type="submit"
-                            disabled={isLoading || inputText === ''}
-                            className="inline-flex items-center justify-center rounded-md text-sm font-medium shadow ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                strokeWidth={1.5}
-                                stroke="currentColor"
-                                className="h-6 w-6"
-                            >
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
-                                />
-                            </svg>
-                            <span className="sr-only">Enviar pergunta</span>
-                        </button>
-                    </TooltipTrigger>
-                    <TooltipContent>Enviar pergunta</TooltipContent>
-                </Tooltip>
+                <div className="absolute right-0 top-4 sm:right-4">
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <Button type="submit" size={'icon'} disabled={isLoading || inputText === ''}>
+                                <IconSendRight />
+                                <span className="sr-only">Enviar pergunta</span>
+                            </Button>
+                        </TooltipTrigger>
+                        <TooltipContent>Enviar pergunta</TooltipContent>
+                    </Tooltip>
+                </div>
             </div>
         </form>
 
