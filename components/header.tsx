@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 
 import { ThemeToggle } from './theme-toggle'
 import { buttonVariants } from './ui/button'
-import { IconGitHub, IconLogicResolverAi, IconSeparator, IconVercel } from './ui/icons'
+import { IconGitHub, IconLogicResolverAi, IconSeparator } from './ui/icons'
 
 export default function Header() {
     return (
