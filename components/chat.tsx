@@ -3,24 +3,25 @@
 import { type Message, useChat } from 'ai/react'
 import { toast } from 'react-hot-toast'
 
-import { useLocalStorage } from '@/lib/hooks/use-local-storage'
+import { cn } from '@/lib/utils'
 
+import { ChatList } from './chat-list'
 import { ChatPanel } from './chat-panel'
+import { ChatScrollAnchor } from './chat-scroll-anchor'
+import { EmptyScreen } from './empty-screen'
 
 export interface ChatProps extends React.ComponentProps<'div'> {
     initialMessages?: Message[]
     id?: string
 }
 
-export default function ChatComponent({ id, initialMessages, className }: ChatProps): JSX.Element {
-    const [previewToken, setPreviewToken] = useLocalStorage<string | null>('ai-token', null)
+export default function Chat({ id, initialMessages, className }: ChatProps): JSX.Element {
 
     const { messages, append, reload, stop, isLoading, input, setInput } = useChat({
         initialMessages,
-        id,
+        id,  
         body: {
             id,
-            previewToken,
         },
         onResponse(response) {
             if (response.status === 401) {
@@ -31,6 +32,16 @@ export default function ChatComponent({ id, initialMessages, className }: ChatPr
 
     return (
         <>
+            <div className={cn('pb-[200px] pt-4 md:pt-10', className)}>
+                {messages.length ? (
+                    <>
+                        <ChatList messages={messages} />
+                        <ChatScrollAnchor trackVisibility={isLoading} />
+                    </>
+                ) : (
+                    <EmptyScreen setInput={setInput} />
+                )}
+            </div>
             <ChatPanel
                 id={id}
                 isLoading={isLoading}
