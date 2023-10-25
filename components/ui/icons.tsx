@@ -4,7 +4,7 @@ import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
-function IconLogicResolverAi({ className, inverted, ...props }: React.ComponentProps<'svg'> & { inverted?: boolean }) {
+function IconLogicResolverAiWithBackground({ className, inverted, ...props }: React.ComponentProps<'svg'> & { inverted?: boolean }) {
     return (
         <svg
             width="184"
@@ -33,6 +33,40 @@ function IconLogicResolverAi({ className, inverted, ...props }: React.ComponentP
                     />
                 )}
             </g>
+        </svg>
+    )
+}
+
+function IconLogicResolverAiNoBackground({ className, inverted, ...props }: React.ComponentProps<'svg'> & { inverted?: boolean }) {
+    return (
+        <svg
+            width="276"
+            height="343"
+            viewBox="0 0 276 343"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={cn('h-4 w-4', className)}
+            {...props}
+        >
+            {inverted ? (
+                <g className="mix-blend-hard-light">
+                    <path
+                        d="M71.9226 191.806C74.3433 220.854 -27.3265 138.55 21.0877 51.4045C69.5019 -35.741 190.537 32.0388 168.751 51.4045M195.379 337.048C195.379 337.048 31.9809 180.912 195.379 211.171C358.777 241.43 195.379 114.948 195.379 114.948M96.1297 337.048V264.427V82.8737H195.379V114.948M96.1297 191.806C134.889 161.791 162.699 211.171 195.379 114.948"
+                        stroke="white"
+                        strokeWidth="15"
+                        strokeLinejoin="round"
+                    />
+                </g>
+            ) : (
+                <g className="mix-blend-hard-light">
+                    <path
+                        d="M71.9226 191.81C74.3433 220.859 -27.3265 138.553 21.0877 51.4055C69.5019 -35.742 190.537 32.0394 168.751 51.4055M195.379 337.056C195.379 337.056 31.9809 180.916 195.379 211.176C358.777 241.436 195.379 114.951 195.379 114.951M96.1297 337.056V264.433V82.8755H195.379V114.951M96.1297 191.81C134.889 161.794 162.699 211.176 195.379 114.951"
+                        stroke="#5A25F1"
+                        strokeWidth="15"
+                        strokeLinejoin="round"
+                    />
+                </g>
+            )}
         </svg>
     )
 }
@@ -281,7 +315,14 @@ function IconSendRight({ className, ...props }: React.ComponentProps<'svg'>) {
 
 function IconQuestionMark({ className, ...props }: React.ComponentProps<'svg'>) {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512" fill='currentColor'  className={cn('h-4 w-4', className)} {...props}>
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 320 512"
+            fill="currentColor"
+            className={cn('h-4 w-4', className)}
+            {...props}
+        >
             <path d="M80 160c0-35.3 28.7-64 64-64h32c35.3 0 64 28.7 64 64v3.6c0 21.8-11.1 42.1-29.4 53.8l-42.2 27.1c-25.2 16.2-40.4 44.1-40.4 74V320c0 17.7 14.3 32 32 32s32-14.3 32-32v-1.4c0-8.2 4.2-15.8 11-20.2l42.2-27.1c36.6-23.6 58.8-64.1 58.8-107.7V160c0-70.7-57.3-128-128-128H144C73.3 32 16 89.3 16 160c0 17.7 14.3 32 32 32s32-14.3 32-32zm80 320a40 40 0 1 0 0-80 40 40 0 1 0 0 80z" />
         </svg>
     )
@@ -289,7 +330,8 @@ function IconQuestionMark({ className, ...props }: React.ComponentProps<'svg'>) 
 
 export {
     IconEdit,
-    IconLogicResolverAi,
+    IconLogicResolverAiWithBackground,
+    IconLogicResolverAiNoBackground,
     IconGitHub,
     IconSeparator,
     IconArrowDown,
