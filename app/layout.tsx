@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils'
 import Header from '@/components/header'
 import { TailwindIndicator } from '@/components/tailwind-indicator'
 
-import { Providers } from '../components/providers'
+import { Providers } from '@/components/providers'
 
 export const metadata: Metadata = {
     title: {
