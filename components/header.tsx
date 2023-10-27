@@ -17,7 +17,7 @@ export default function Header() {
                 </Link>
                 <div className="flex items-center ">
                     <IconSeparator className="h-6 w-6 text-muted-foreground/50" />
-                    <span>Logic Resolver AI</span>
+                    <span className="text-sm sm:text-base">Logic Resolver AI</span>
                 </div>
             </div>
             <div className="flex items-center justify-end space-x-2">
