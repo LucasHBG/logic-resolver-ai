@@ -23,15 +23,17 @@ export function EmptyScreen({ setInput }: Pick<UseChatHelpers, 'setInput'>) {
     return (
         <div className="mx-auto max-w-2xl px-4">
             <div className="rounded-lg border bg-background p-8">
-                <h1 className="mb-2 text-lg font-semibold">Bem-vindo(a) ao Logic Resolver AI Chatbot!</h1>
-                <p className="mb-2 leading-normal text-muted-foreground">
+                <h1 className="mb-2 text-base font-semibold sm:text-lg">Bem-vindo(a) ao Logic Resolver AI!</h1>
+                <p className="mb-2 text-sm leading-normal text-muted-foreground sm:text-base">
                     Projeto open source que usou de referência o modelo de chatbot da <ExternalLink href="https://vercel.com">Vercel</ExternalLink> e
                     o framework <ExternalLink href="https://nextjs.org">Next.js</ExternalLink>.
                 </p>
-                <p className="leading-normal text-muted-foreground">Você pode começar uma conversa por aqui ou usando os seguintes exemplos:</p>
-                <div className="mt-4 flex flex-col items-start space-y-2">
+                <p className="text-sm leading-normal text-muted-foreground sm:text-base">
+                    Você pode começar uma conversa por aqui ou usando os seguintes exemplos:
+                </p>
+                <div className="mt-4 flex flex-col items-start space-y-2 ">
                     {exampleMessages.map((message, index) => (
-                        <Button key={index} variant="link" className="h-auto p-0 text-base" onClick={() => setInput(message.message)}>
+                        <Button key={index} variant="link" className="h-auto p-0 text-sm sm:text-base" onClick={() => setInput(message.message)}>
                             <IconArrowRight className="mr-2 text-muted-foreground" />
                             {message.heading}
                         </Button>
