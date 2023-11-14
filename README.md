@@ -1,4 +1,8 @@
-# Logic Resolver Ai - FEMATEC
+# Logic Resolver Ai
+
+## Objetivo
+
+Passe pela experiência única de ter um professor particular de Lógica Matemática e tira suas dúvidas sem medo de ser julgado em uma das matérias mais importantes de qualquer curso de TI.
 
 ## Diagrama
 
